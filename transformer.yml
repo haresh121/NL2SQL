@@ -1,0 +1,55 @@
+data:
+    corpus_1:
+        path_src: /content/drive/MyDrive/NLP/NL2SQL/train/nl-tr.txt
+        path_tgt: /content/drive/MyDrive/NLP/NL2SQL/train/sql-tr.txt
+    valid:
+        path_src: /content/drive/MyDrive/NLP/NL2SQL/validation/nl-val.txt
+        path_tgt: /content/drive/MyDrive/NLP/NL2SQL/validation/sql-val.txt
+src_vocab: /content/drive/MyDrive/NLP/NL2SQL/vocab/nl.vocab
+tgt_vocab: /content/drive/MyDrive/NLP/NL2SQL/vocab/sql.vocab
+save_model: /content/drive/MyDrive/NLP/NL2SQL/saved_model/model.nl-sql
+
+save_checkpoint_steps: 1000
+keep_checkpoint: 10
+seed: 5385
+train_steps: 20000
+valid_steps: 1000
+warmup_steps: 800
+report_every: 500
+
+decoder_type: transformer
+encoder_type: transformer
+position_encoding: true
+enc_layers: 6
+dec_layers: 6
+heads: 8
+rnn_size: 512
+word_vec_size: 512
+transformer_ff: 2048
+dropout_steps: [0]
+dropout: [0.1]
+attention_dropout: [0.1]
+heads: 8
+
+accum_count: 8
+optim: adam
+adam_beta1: 0.88889
+adam_beta2: 0.99998
+decay_method: noam
+learning_rate: 1.000005
+max_grad_norm: 0.0001
+
+batch_size: 2048
+batch_type: tokens
+normalization: tokens
+dropout: 0.2
+label_smoothing: 0.15
+
+max_generator_batches: 2
+
+param_init: 0.0
+param_init_glorot: 'true'
+position_encoding: 'true'
+
+world_size: 1
+gpu_ranks: [0]
